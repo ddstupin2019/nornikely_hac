@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: hypothesis_pipeline_app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Монтируем локальную папку chroma_db в контейнер для персистентности данных (если потребуется)
+      - ./chroma_db:/app/chroma_db
+      # Монтируем папку с логами для доступа снаружи
+      - ./pipeline.log:/app/pipeline.log
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      # Эти ключи будут браться из файла .env в корне
+      - YANDEX_API_KEY=${YANDEX_API_KEY}
+      - YANDEX_FOLDER_ID=${YANDEX_FOLDER_ID}
