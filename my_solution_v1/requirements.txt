@@ -10,3 +10,13 @@ pytest
 pytest-cov
 jinja2
 requests
+pandas
+openai
+Pillow
+PyMuPDF
+pdfplumber
+pytesseract
+langchain-chroma
+langchain-community
+sentence-transformers
+tabulate
