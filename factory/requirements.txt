@@ -1,0 +1,9 @@
+pandas
+openpyxl
+pypdf
+langdetect
+chromadb
+sentence-transformers
+openai
+fastapi
+uvicorn

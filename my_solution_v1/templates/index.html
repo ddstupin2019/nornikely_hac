@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система генерации гипотез</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Система генерации и приоритизации научных гипотез</h1>
+        
+        <div class="section">
+            <h2>1. Загрузка базы знаний (RAG)</h2>
+            <form id="upload-form">
+                <input type="file" id="kb-files" multiple accept=".pdf,.docx,.xlsx,.xls,.csv,.png,.jpg,.jpeg">
+                <button type="submit">Загрузить в базу</button>
+            </form>
+            <div id="upload-status"></div>
+        </div>
+        
+        <hr>
+        
+        <div class="section">
+            <h2>2. Постановка задачи</h2>
+            <form id="task-form">
+                <label for="task-desc">Описание проблемы, оборудования, бюджета и ограничений:</label>
+                <textarea id="task-desc" rows="6" required placeholder="Например: Снизить потери цветных металлов (никель, медь) в отвальных хвостах флотации. Оборудование: текущее. Бюджет: без капитального строительства."></textarea>
+                
+                <label for="task-files">Дополнительные файлы к задаче (опционально):</label>
+                <input type="file" id="task-files" multiple>
+                
+                <button type="submit">Сгенерировать гипотезы</button>
+            </form>
+            <div id="task-status"></div>
+            <div id="progress-container" style="display: none; margin-top: 10px;">
+                <progress id="pipeline-progress" value="0" max="6" style="width: 100%;"></progress>
+                <div id="progress-text" style="text-align: center; font-size: 0.9em; margin-top: 5px;"></div>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="section">
+            <h2>3. Результаты (Топ-5 гипотез)</h2>
+            <button id="download-md-btn" style="display: none; margin-bottom: 15px; padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Скачать ответ в .md</button>
+            <div id="results">Здесь появятся результаты...</div>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>

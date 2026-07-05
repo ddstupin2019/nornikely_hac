@@ -1,0 +1,38 @@
+# Virtual Environments
+venv/
+venv_old/
+.venv/
+env/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Databases and large data
+chroma_db/
+temp_uploads/
+exepmle/
+*.db
+*.sqlite3
+
+# Archives
+*.zip
+*.tar.gz
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets and environment variables
+.env
+.env.*
+secrets.json
+*.pem
+
+# Logs
+*.log
